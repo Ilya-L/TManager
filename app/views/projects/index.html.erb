@@ -1,0 +1,31 @@
+<%= link_to 'Projects', controller: 'projects' %>
+<%= link_to 'Users', controller: 'users' %>
+<%= link_to 'Tasks', controller: 'tasks' %>
+<br />
+<h1>Listing projects</h1>
+
+<p><%= link_to 'Add project', new_project_path %></p>
+
+<table width = 100%>
+  <tr>
+    <th>Name</th>
+    <th>Summary</th>
+    <th>Start date</th>
+    <th>End date</th>
+</tr>
+
+  <% @projects.each do |project| %>
+    <tr>
+      <td align=center><%= project.name %></td>
+      <td align=center><%= project.summary %></td>
+      <td align=center><%= project.start_date %></td>
+      <td align=center><%= project.end_date %></td>
+      <td align=center><%= link_to 'More details', project_path(project) %></td>
+      <td align=center><%= link_to 'Edit', edit_project_path(project) %></td>
+      <td align=center><%= link_to 'Delete', project_path(project),
+             method: :delete,
+             data: { confirm: 'Are you sure?' }
+              %></td>
+    </tr>
+  <% end %>
+</table>

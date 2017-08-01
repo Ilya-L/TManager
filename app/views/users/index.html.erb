@@ -1,0 +1,34 @@
+<%= link_to 'Projects', controller: 'projects' %>
+<%= link_to 'Users', controller: 'users' %>
+<%= link_to 'Tasks', controller: 'tasks' %>
+<br />
+
+<h1>Listing users</h1>
+
+<p><%= link_to 'Add user', new_user_path %></p>
+
+<table width = 100%>
+  <tr>
+    <th>Firts name</th>
+    <th>Last name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Admin</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td align=center><%= user.first_name %></td>
+      <td align=center><%= user.last_name %></td>
+      <td align=center><%= user.email %></td>
+      <td align=center><%= user.password %></td>
+      <td align=center><%= user.admin %></td>
+      <td align=center><%= link_to 'More details', user_path(user) %></td>
+      <td align=center><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td align=center><%= link_to 'Delete', user_path(user),
+             method: :delete,
+             data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tite: MyString
+  description: MyText
+  project_name: MyString
+  implementer: MyString
+  status: MyString
+
+two:
+  tite: MyString
+  description: MyText
+  project_name: MyString
+  implementer: MyString
+  status: MyString

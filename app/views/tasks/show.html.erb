@@ -1,0 +1,45 @@
+<h1>Details of task</h1>
+  <p>
+    <b>Title:</b>
+    <%= @task.title %>
+  </p>
+  <p>
+    <b>Description:</b>
+    <%= @task.description %>
+  </p>
+  <p>
+    <b>Project name:</b>
+    <%= @task.project_name %>
+  </p>
+  <p>
+    <b>Implementer:</b>
+    <%= @task.implementer %>
+  </p>
+  <p>
+    <b>Status:</b>
+    <%= @task.status %>
+  </p>
+<%= link_to 'Edit', edit_task_path(@task) %>
+
+<h2>Details of project</h2>
+<% @projects.each do |project| %>
+  <p>
+    <b>Project name:</b>
+    <%= project.name %>
+  </p>
+  <p>
+    <b>Project summary:</b>
+    <%= project.summary %>
+  </p>
+  <p>
+    <b>Project start date:</b>
+    <%= project.start_date %>
+  </p>
+  <p>
+    <b>Project end date:</b>
+    <%= project.end_date %>
+  </p>
+
+  <% end %>
+
+  <%= link_to 'Back', tasks_path %>

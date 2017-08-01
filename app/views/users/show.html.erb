@@ -1,0 +1,53 @@
+  <p>
+    <b>First name</b>
+    <%= @user.first_name %>
+  </p>
+  <p>
+    <b>Last name</b>
+    <%= @user.last_name %>
+  </p>
+  <p>
+    <b>Email</b>
+    <%= @user.email %>
+  </p>
+  <p>
+    <b>Password</b>
+    <%= @user.password %>
+  </p>
+  <p>
+    <b>Admin</b>
+    <%= @user.admin %>
+  </p>
+
+<%= link_to 'Edit', edit_user_path(@user) %>
+
+<h2>Tasks for this user: </h2>
+
+<table width = 100%>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Project name</th>
+    <th>Implementer</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td align=center><%= task.title %></td>
+    <td align=center><%= task.description %></td>
+    <td align=center><%= task.project_name %></td>
+    <td align=center><%= task.implementer %></td>
+    <td align=center><%= task.status %></td>
+    <td align=center><%= link_to 'More info', task_path(task) %></td>
+    <td align=center><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td align=center><%= link_to 'Delete', task_path(task),
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Back', users_path %>

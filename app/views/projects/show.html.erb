@@ -1,0 +1,53 @@
+<h1>Details of project</h1>
+  <p>
+    <b>Project name:</b>
+    <%= @project.name %>
+  </p>
+  <p>
+    <b>Project summary:</b>
+    <%= @project.summary %>
+  </p>
+  <p>
+    <b>Project start date:</b>
+    <%= @project.start_date %>
+  </p>
+  <p>
+    <b>Project end date:</b>
+    <%= @project.end_date %>
+  </p>
+
+<%= link_to 'Edit', edit_project_path(@project) %>
+
+<h2>Task for this project</h2>
+
+<p><%= link_to 'Add task', new_task_path %></p>
+
+<table width = 100%>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Project name</th>
+    <th>Implementer</th>
+    <th>Status</th>
+    <th></th>
+  </tr>
+
+
+
+  <% @tasks.each do |task| %>
+    <tr>
+      <td align=center><%= task.title %></td>
+      <td align=center><%= task.description %></td>
+      <td align=center><%= task.project_name %></td>
+      <td align=center><%= task.implementer %></td>
+      <td align=center><%= task.status %></td>
+      <td align=center><%= link_to 'Show', task_path(task) %></td>
+      <td align=center><%= link_to 'Edit', edit_task_path(task) %></td>
+      <td align=center><%= link_to 'Destroy', task_path(task),
+             method: :delete,
+             data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+
+<%= link_to 'Back', projects_path %>
